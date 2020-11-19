@@ -13,6 +13,7 @@ const (
 	ToolEd25519Addr = "ed25519addr"
 	ToolSnapGen     = "snapgen"
 	ToolBenchmarkIO = "bench-io"
+	ToolSnapMerge   = "snapmerge"
 )
 
 // HandleTools handles available tools.
@@ -43,6 +44,7 @@ func HandleTools() {
 		ToolEd25519Key:  generateEd25519Key,
 		ToolEd25519Addr: generateEd25519Address,
 		ToolSnapGen:     snapshotGen,
+		ToolSnapMerge:   snapshotMerge,
 		ToolP2PIdentity: generateP2PIdentity,
 		ToolBenchmarkIO: benchmarkIO,
 	}
@@ -69,6 +71,7 @@ func listTools(args []string) error {
 	fmt.Println(fmt.Sprintf("%-15s generates an ed25519 address from a public key", fmt.Sprintf("%s:", ToolEd25519Addr)))
 	fmt.Println(fmt.Sprintf("%-15s generates an initial snapshot for a private network", fmt.Sprintf("%s:", ToolSnapGen)))
 	fmt.Println(fmt.Sprintf("%-15s benchmarks the IO throughput", fmt.Sprintf("%s:", ToolBenchmarkIO)))
+	fmt.Println(fmt.Sprintf("%-15s merges a full and delta snapshot into an updated full snapshot", fmt.Sprintf("%s:", ToolSnapMerge)))
 
 	return nil
 }
